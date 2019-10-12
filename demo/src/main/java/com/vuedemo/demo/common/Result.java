@@ -8,17 +8,25 @@ public class Result<T> {
 
     private T data;
 
-    public Result() {
+    protected Result() {
     }
 
-    public Result(long code, String msg, T data) {
+    protected Result(long code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public static success (T data) {
-        return new Result<T>(200L, "success", data);
+    public static <T> Result<T> success(T data) {
+        return new Result<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
+    }
+
+    public static <T> Result<T> success(T data, String message) {
+        return new Result<>(ResultCode.SUCCESS.getCode(), message, data);
+    }
+
+    public static <T> Result<T> failed(String message) {
+        return new Result<>(ResultCode.FAILED.getCode(), message, null);
     }
 
     public long getCode() {

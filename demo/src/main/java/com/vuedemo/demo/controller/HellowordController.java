@@ -1,20 +1,25 @@
 package com.vuedemo.demo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.vuedemo.demo.common.Result;
+import com.vuedemo.demo.dto.LoginParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api")
 public class HellowordController {
 
-    @GetMapping("/login")
-    public List test()
+    @PostMapping("/login")
+    public Result test(@RequestBody LoginParam loginParam)
     {
-        return Arrays.asList(1,2,3,4);
+        HashMap<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("username", loginParam.getPassword());
+        tokenMap.put("password", loginParam.getUsername());
+
+        return Result.success(tokenMap);
     }
 }

@@ -1,5 +1,8 @@
 package com.vuedemo.demo.dto;
 
+/**
+ * 用户登陆参数
+ */
 public class LoginParam {
 
     private String username;

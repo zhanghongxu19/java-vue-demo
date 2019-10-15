@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import Login from '../components/Login'
-import AppIndex from "../components/home/Appindex"
+import Login from '@/components/Login'
+import AppIndex from "@/components/home/AppIndex"
 
 export default new Router({
     routes: [

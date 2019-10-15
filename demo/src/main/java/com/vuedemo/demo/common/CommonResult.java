@@ -1,6 +1,6 @@
 package com.vuedemo.demo.common;
 
-public class Result<T> {
+public class CommonResult<T> {
 
     private long code;
 
@@ -8,25 +8,25 @@ public class Result<T> {
 
     private T data;
 
-    protected Result() {
+    protected CommonResult() {
     }
 
-    protected Result(long code, String msg, T data) {
+    protected CommonResult(long code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
     }
 
-    public static <T> Result<T> success(T data) {
-        return new Result<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
+    public static <T> CommonResult<T> success(T data) {
+        return new CommonResult<T>(ResultCode.SUCCESS.getCode(), ResultCode.SUCCESS.getMessage(), data);
     }
 
-    public static <T> Result<T> success(T data, String message) {
-        return new Result<>(ResultCode.SUCCESS.getCode(), message, data);
+    public static <T> CommonResult<T> success(T data, String message) {
+        return new CommonResult<>(ResultCode.SUCCESS.getCode(), message, data);
     }
 
-    public static <T> Result<T> failed(String message) {
-        return new Result<>(ResultCode.FAILED.getCode(), message, null);
+    public static <T> CommonResult<T> failed(String message) {
+        return new CommonResult<>(ResultCode.FAILED.getCode(), message, null);
     }
 
     public long getCode() {

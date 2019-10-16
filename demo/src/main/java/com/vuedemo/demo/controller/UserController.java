@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 @RequestMapping("/api")
 @RestController
+@CrossOrigin
 public class UserController {
 
     @Autowired

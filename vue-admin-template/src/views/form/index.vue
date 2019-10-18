@@ -1,8 +1,11 @@
 <template>
   <div class="app-container">
     <el-form ref="form" :model="form" label-width="120px">
-      <el-form-item label="Activity name">
-        <el-input v-model="form.name" />
+      <el-form-item label="端口号">
+        <el-input v-model="form.port" />
+      </el-form-item>
+      <el-form-item label="绑定的域名">
+        <el-input v-model="form.domain" />
       </el-form-item>
       <el-form-item label="Activity zone">
         <el-select v-model="form.region" placeholder="please select your zone">
@@ -30,10 +33,12 @@
           <el-checkbox label="Simple brand exposure" name="type" />
         </el-checkbox-group>
       </el-form-item>
-      <el-form-item label="Resources">
-        <el-radio-group v-model="form.resource">
-          <el-radio label="Sponsor" />
-          <el-radio label="Venue" />
+      <!--单选框-->
+      <el-form-item label="框架">
+        <el-radio-group v-model="form.framework">
+          <el-radio :label="1">通用</el-radio>
+          <el-radio :label="2">Laravel</el-radio>
+          <el-radio :label="3">ThinkPHP</el-radio>
         </el-radio-group>
       </el-form-item>
       <el-form-item label="Activity form">
@@ -52,7 +57,9 @@ export default {
   data() {
     return {
       form: {
-        name: '',
+        port: 80,
+        domain: '',
+        framework: 1,
         region: '',
         date1: '',
         date2: '',

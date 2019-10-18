@@ -3,12 +3,14 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf-8&useSSL=false
+    username: homestead
+    password: secret
+    url: jdbc:mysql://127.0.0.1:33060/javavue?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
-
+  servlet:
+    multipart:
+      location: e:/springboot
 
 jwt:
   tokenHeader: Authorization

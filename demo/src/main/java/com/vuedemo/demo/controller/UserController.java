@@ -18,13 +18,11 @@ public class UserController {
 
     @GetMapping("/user/info")
     public CommonResult userInfo(String token) {
-        String token1 = request.getHeader("X-Token");
 
         HashMap<String, String> userInfo = new HashMap<>();
         userInfo.put("name", "zhanghongxu");
         userInfo.put("avatar", "https://avatar-static.segmentfault.com/285/486/285486960-59226f974c266_big64");
         userInfo.put("token", token);
-        userInfo.put("token1", token1);
 
         return CommonResult.success(userInfo);
     }

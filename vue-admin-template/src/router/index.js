@@ -50,11 +50,64 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      component: () => import('@/views/home/index'),
+      meta: { title: '首页', icon: 'home' }
     }]
   },
-
+  {
+    path: '/test',
+    component: Layout,
+    redirect: '/tests',
+    name: 'test',
+    meta: { title: '测试', icon: 'home' },
+    children: [
+      {
+        path: 'index',
+        name: 'testIndex',
+        component: () => import('@/views/test/index'),
+        meta: { title: '上传测试', icon: 'home' }
+      },
+      {
+        path: 'redis',
+        name: 'redis',
+        component: () => import('@/views/test/redis'),
+        meta: { title: '集成redis测试', icon: 'home' }
+      },
+      {
+        path: 'table',
+        name: 'table',
+        component: () => import('@/views/test/table'),
+        meta: { title: '表格练习', icon: 'home' }
+      },
+      {
+        path: 'form',
+        name: 'form',
+        component: () => import('@/views/test/form'),
+        meta: { title: '表单练习', icon: 'home' }
+      }
+    ]
+  },
+  {
+    path: '/product',
+    component: Layout,
+    redirect: '/products',
+    name: 'product',
+    meta: { title: '商品', icon: 'product' },
+    children: [
+      {
+        path: 'index',
+        name: 'productList',
+        component: () => import('@/views/product/index'),
+        meta: { title: '商品列表', icon: 'product-list' }
+      },
+      {
+        path: 'productCate',
+        name: 'productCate',
+        component: () => import('@/views/productCate/index'),
+        meta: { title: '商品分类', icon: 'product-cate' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
@@ -83,9 +136,9 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        name: 'Form',
+        name: 'form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: 'Nginx配置', icon: 'form' }
       }
     ]
   },
